@@ -1,5 +1,7 @@
 # Windows 本地发布层
 
+> **Proprietary — Viewing Only. All rights reserved.** 本仓库与发布内容仅供查看和检查式评估，详见 [LICENSE](../LICENSE)。Public 可见性不能技术阻止 GitHub 平台 fork，而 fork 不授予更广许可。
+
 当前版本：以根目录 [VERSION](../VERSION) 为唯一来源。
 
 ## 安装与启动
@@ -29,8 +31,10 @@
 
 ## Private Draft 内部预览
 
-当前 private GitHub 仓库已创建 [Draft prerelease](https://github.com/Xmaomao426/bidding-asset/releases/tag/untagged-759094676713542487ea)，标签为 `v0.1.0-dev`。它仅用于内部预览，不是 public、stable、latest 或正式 `0.1.0`，不得发布为正式 Release。
+当前没有 public published Release 或 public binary download。维护者可见的 Private Draft internal preview 仍非公开；现有 Draft Release `379491240` 与标签 `v0.1.0-dev` 仅用于内部预览，不是 public、stable、latest 或正式 `0.1.0`，不得发布。
 
 指定下载仅限该 Draft Release 上传的两个附件：`bidding-asset-windows-0.1.0-dev.zip` 与 `bidding-asset-windows-0.1.0-dev.zip.sha256`。ZIP 为 299714 bytes，SHA-256 为 `0a0395edee4722b948f87b9e536fdca6f830ec63517e7f548269c0b52bef1398`。不要把 GitHub 自动生成的源码归档当作安装包。
 
 远端采用从已验证发布包构造的 fresh sanitized history，不包含本地源仓库历史、DevFlow 或正式业务数据。Git transport 失败后使用了有界 REST fallback 完成当前内部预览；这不改变安装方式、ZIP 内容或校验值。仍不使用 GitHub Actions、自动发布、自动更新或部署。
+
+当前 Draft ZIP 不含 `LICENSE`，现有 ZIP、sidecar 与其他 Draft 资产必须保持不变且不得发布。任何未来 public binary 都是另行授权任务：必须重建包含 `LICENSE` 的新包、使用新 tag，并完成新的安装与发布验收。

@@ -1,5 +1,7 @@
 # 本地招投标资产管理系统
 
+> **Proprietary — Viewing Only. All rights reserved.** 本仓库仅供查看与检查式评估，详见 [LICENSE](LICENSE)。若仓库未来设为 Public，GitHub 仍允许查看与平台 fork；fork 不授予更广的使用、修改或分发权利。
+
 本项目是面向本地资料的招投标资产管理 Web 应用。当前用户终态链路为：
 
 ```text
@@ -18,7 +20,9 @@
 
 当前已实现 Windows localhost-only 启动、只读 Preflight、workspace 隔离、单实例保护、版本和最小离线打包脚本。
 
-当前内部预览位于 private GitHub 仓库的 [Draft prerelease](https://github.com/Xmaomao426/bidding-asset/releases/tag/untagged-759094676713542487ea)。它不是 public、stable、latest 或正式 `0.1.0`；干净 Windows 安装验收为 `NOT RUN`，同机隔离安装为 `PARTIAL PASS`。内部预览下载仅使用该 Draft Release 上传的两个附件：版本化 ZIP 与对应 `.zip.sha256`；GitHub 自动生成的源码归档不属于分发物。
+当前没有 public published Release 或 public binary download。维护者可见的 Private Draft internal preview 仍非公开，不是 public、stable、latest 或正式 `0.1.0`；干净 Windows 安装验收为 `NOT RUN`，同机隔离安装为 `PARTIAL PASS`。现有 Draft Release `379491240`、`v0.1.0-dev` 标签、ZIP 与 sidecar 保持不变且不得发布。
+
+当前 Draft ZIP 不含 `LICENSE`。任何未来 public binary 都必须由另行授权任务重建为包含 `LICENSE` 的新包，并使用新 tag 与新验收；不得发布当前 Draft 资产。
 
 远端仓库使用 fresh sanitized history，不含本地源仓库历史、DevFlow 或正式业务数据。当前没有 GitHub Actions、自动发布、自动更新或部署。
 
