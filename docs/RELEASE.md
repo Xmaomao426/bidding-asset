@@ -25,6 +25,12 @@
 
 `scripts/build_release.ps1` 仅复制 `release/manifest.txt` 白名单，在临时 staging 中构建并复核 ZIP，输出到 `dist/`。包内禁止正式数据、工作簿、归档资料、环境、Git、虚拟环境、DevFlow、测试、历史、日志、上传、备份和临时文件。
 
-`setup-local.cmd` 安装脚本已完成静态审核，但开发包尚未完成干净 Windows 安装验收。该验收必须在 `0.1.0` 前作为独立任务完成。
+`setup-local.cmd` 安装脚本已完成静态审核，但开发包尚未完成干净 Windows 安装验收。当前干净 Windows 安装验收状态为 `NOT RUN`，同机隔离安装为 `PARTIAL PASS`；干净 Windows 验收必须在正式 `0.1.0` 前作为独立任务完成。
 
-GitHub 仓库保持 private。只有在后续独立授权的干净安装与发布验收通过后，维护者才可手工创建 Draft Release，并附加版本化 ZIP 与 SHA 文件。不使用 GitHub Actions、自动发布或自动更新；当前任务不 push、不 tag，也不创建 Release。
+## Private Draft 内部预览
+
+当前 private GitHub 仓库已创建 [Draft prerelease](https://github.com/Xmaomao426/bidding-asset/releases/tag/untagged-759094676713542487ea)，标签为 `v0.1.0-dev`。它仅用于内部预览，不是 public、stable、latest 或正式 `0.1.0`，不得发布为正式 Release。
+
+指定下载仅限该 Draft Release 上传的两个附件：`bidding-asset-windows-0.1.0-dev.zip` 与 `bidding-asset-windows-0.1.0-dev.zip.sha256`。ZIP 为 299714 bytes，SHA-256 为 `0a0395edee4722b948f87b9e536fdca6f830ec63517e7f548269c0b52bef1398`。不要把 GitHub 自动生成的源码归档当作安装包。
+
+远端采用从已验证发布包构造的 fresh sanitized history，不包含本地源仓库历史、DevFlow 或正式业务数据。Git transport 失败后使用了有界 REST fallback 完成当前内部预览；这不改变安装方式、ZIP 内容或校验值。仍不使用 GitHub Actions、自动发布、自动更新或部署。

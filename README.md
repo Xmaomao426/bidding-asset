@@ -16,7 +16,11 @@
 
 ## 当前发布层边界
 
-当前已实现 Windows localhost-only 启动、只读 Preflight、workspace 隔离、单实例保护、版本和最小离线打包脚本。脚本尚未完成干净 Windows 安装验收；当前没有 GitHub Release、tag、部署或自动更新。
+当前已实现 Windows localhost-only 启动、只读 Preflight、workspace 隔离、单实例保护、版本和最小离线打包脚本。
+
+当前内部预览位于 private GitHub 仓库的 [Draft prerelease](https://github.com/Xmaomao426/bidding-asset/releases/tag/untagged-759094676713542487ea)。它不是 public、stable、latest 或正式 `0.1.0`；干净 Windows 安装验收为 `NOT RUN`，同机隔离安装为 `PARTIAL PASS`。内部预览下载仅使用该 Draft Release 上传的两个附件：版本化 ZIP 与对应 `.zip.sha256`；GitHub 自动生成的源码归档不属于分发物。
+
+远端仓库使用 fresh sanitized history，不含本地源仓库历史、DevFlow 或正式业务数据。当前没有 GitHub Actions、自动发布、自动更新或部署。
 
 ## 目录
 
