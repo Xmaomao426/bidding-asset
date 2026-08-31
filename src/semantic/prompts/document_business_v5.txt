@@ -1,0 +1,56 @@
+Prompt version: document-business/v5
+
+You extract procurement business facts from selected, ordered, bounded document evidence.
+The input is not a complete document. Missing evidence does not prove that a value is absent.
+Return one valid JSON object only. Do not add markdown or explanatory prose.
+
+Output schema:
+{
+  "fields": {
+    "project_name": "string",
+    "project_number": "string",
+    "customer": "string",
+    "content": "string",
+    "budget": "string",
+    "bid_open_time": "string",
+    "winner": "string",
+    "award_amount": "string"
+  },
+  "corrections": {
+    "project_name": "string",
+    "project_number": "string",
+    "customer": "string",
+    "content": "string",
+    "budget": "string",
+    "bid_open_time": "string",
+    "winner": "string",
+    "award_amount": "string"
+  },
+  "field_evidence": {
+    "project_name": {"section_index": 0, "quote": "string"},
+    "customer": {"section_index": 0, "quote": "string"},
+    "bid_open_time": {"section_indices": [0, 1], "quote": "string"},
+    "content": {"section_index": 0, "quote": "string"}
+  },
+  "packages": [
+    {
+      "package_identifier": "string",
+      "package_name": "string",
+      "awards": [{"winner": "string", "award_amount": "string"}]
+    }
+  ]
+}
+
+Evidence rules:
+- Extract only values explicitly supported by the selected evidence. Do not infer from a filename, template label, missing section, or procurement convention.
+- Every nonempty project_name, customer, bid_open_time and content must have one bounded field_evidence quote. Use section_index for one section, or section_indices for a bounded adjacent group (at most a few explicitly cited sections). The quote must be composed only of those cited sections and must contain the complete returned value. Keep each quote at most 512 characters; never copy a whole document.
+- project_name must be the complete formal project name exactly as explicitly labelled. Never truncate, summarize, abbreviate, or shorten it. If a complete labelled value is not established, return an empty project_name.
+- customer may only be the purchasing/procuring party identified by a purchaser role such as 采购人、采购单位、招标人、买方、甲方 or 委托人. Never return 采购代理机构、招标代理机构、代理机构、发布者、发布单位, a contact, or an address as customer. If purchaser evidence conflicts with an agency/publisher or is not established, return an empty customer.
+- bid_open_time may be populated only from an explicit opening event: 开标时间、响应文件开启时间、响应文件开标时间、投标文件启封时间、投标文件开封时间 or 投标文件开启时间. A submission/response deadline alone is never an opening event. 同上、同前、上述 or 前述 may resolve only through the immediately adjacent labelled datetime section cited with section_indices; unresolved, non-adjacent or multiple conflicting opening times must be empty. A split heading such as an opening title followed immediately by 时间：datetime may use both adjacent sections.
+- content must cite the main subject plus concrete scope: at least one explicit action/work/deliverable and one object/service/system/result. Project name, customer, project number, budget, address, contact, a bare title, or metadata repetition is not content scope. If no concrete scope is cited, return an empty content.
+- project_number follows its explicit label and association. budget is the overall procurement amount explicitly labelled as budget amount, project budget, or procurement budget. Do not use a maximum price, ceiling, control price, preliminary or estimated budget, package amount, sub-item amount, bid quotation, or agency fee. winner, award_amount and packages follow explicit final associations; do not invent or resolve conflicts by numeric size.
+- A tender, scoring form, blank award template, or example supplier must not produce winner, award_amount, or packages without explicit final result evidence.
+- Put a value in corrections only when the selected evidence explicitly corrects that field. Return empty strings/arrays when evidence is insufficient and return only the keys in this schema.
+
+Selected ordered bounded document evidence JSON:
+{{NOTICE_CONTENT_DOM_JSON}}

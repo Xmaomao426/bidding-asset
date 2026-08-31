@@ -1,0 +1,63 @@
+Prompt version: document-business/v3
+
+You extract procurement business facts from selected, ordered, bounded document evidence.
+The input is not a complete document or a complete notice-content DOM. Missing evidence does not prove that a value is absent from the source document.
+Return one valid JSON object only. Do not add markdown or explanatory prose.
+
+Output schema:
+{
+  "fields": {
+    "project_name": "string",
+    "project_number": "string",
+    "customer": "string",
+    "content": "string",
+    "budget": "string",
+    "bid_open_time": "string",
+    "winner": "string",
+    "award_amount": "string"
+  },
+  "corrections": {
+    "project_name": "string",
+    "project_number": "string",
+    "customer": "string",
+    "content": "string",
+    "budget": "string",
+    "bid_open_time": "string",
+    "winner": "string",
+    "award_amount": "string"
+  },
+  "field_evidence": {
+    "project_name": {"section_index": 0, "quote": "string"},
+    "customer": {"section_index": 0, "quote": "string"}
+  },
+  "packages": [
+    {
+      "package_identifier": "string",
+      "package_name": "string",
+      "awards": [
+        {"winner": "string", "award_amount": "string"}
+      ]
+    }
+  ]
+}
+
+Evidence rules:
+- Extract only values explicitly supported by the selected evidence. Do not infer a value from a missing section, filename, template label, or general procurement convention.
+- An empty value means the selected evidence does not establish it; it does not assert that the complete source lacks it.
+- Sections preserve source order. A section row with table_index refers to the entry with the same table_index in tables; read only its bounded rows.
+- project_name must be the complete formal project name exactly as explicitly labelled in the evidence. Never truncate, summarize, abbreviate, or shorten it. If the complete labelled name is not established, return an empty project_name.
+- customer may only be the procurement party identified by a purchaser role such as 采购人、采购单位、招标人、买方、甲方 or 委托人. Never return a 采购代理机构、招标代理机构、代理机构、发布者 or publisher as customer. If the purchaser role is not established, return an empty customer.
+- For project_name and customer, field_evidence must contain one bounded quote from the cited section. The quote must contain the role label and the complete returned value. Use the explicit numeric section index from the input. If the field is empty, its evidence must be an empty object or omitted. Do not quote an entire section; keep each quote at most 512 characters.
+- A field_evidence quote must come from its cited section and must not be fabricated. Do not use evidence for one field to justify another field.
+- For a contract notice or contract publication, when a complete contract number is present, project_number is that exact full contract number; otherwise project_number is the official procurement or project number. Preserve every suffix and segment identifier.
+- content must contain the main subject or theme plus at least one concrete procurement scope, work item, deliverable, or service described in the selected evidence. Do not return content that equals, abbreviates, or merely repeats project_name. If the selected evidence does not establish a concrete scope, return an empty content value; never use a title alone as scope evidence.
+- budget is the overall procurement amount explicitly labelled as budget amount, project budget, or procurement budget in project basic information or an overall notice overview. Do not use a maximum price, ceiling, control price, preliminary or estimated budget, package or lot budget, sub-item amount, bid quotation, or agency fee as budget. When multiple amounts are present, choose by this labelled role rather than numeric size. Preserve the original unit and precision without conversion or rounding; if two amounts have the same overall-budget role and cannot be resolved, return an empty budget value.
+- bid_open_time is only an explicitly published bid-opening time.
+- A tender, solicitation, scoring form, bidder instruction, blank award template, or example supplier must never produce winner, award_amount, or packages. Those fields require explicit final winning, transaction, award-result, or signed-contract evidence.
+- Preserve every explicitly evidenced package and winner-to-amount/rate association. Never invent a missing association.
+- Put a value in corrections only when the selected evidence explicitly corrects that field, and provide the same evidence discipline for any corrected project_name or customer.
+- Use an empty string or empty array when selected evidence does not establish a value.
+- Return only the keys defined in the output schema.
+
+Selected ordered bounded document evidence JSON:
+{{NOTICE_CONTENT_DOM_JSON}}

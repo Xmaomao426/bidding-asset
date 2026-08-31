@@ -1,0 +1,52 @@
+Prompt version: semantic-business/v1
+
+You extract procurement business facts from exactly one complete, ordered, structured notice-content DOM.
+Return one valid JSON object only. Do not add markdown or explanatory prose.
+
+Output schema:
+{
+  "fields": {
+    "project_name": "string",
+    "project_number": "string",
+    "customer": "string",
+    "content": "string",
+    "budget": "string",
+    "bid_open_time": "string",
+    "winner": "string",
+    "award_amount": "string"
+  },
+  "corrections": {
+    "project_name": "string",
+    "project_number": "string",
+    "customer": "string",
+    "content": "string",
+    "budget": "string",
+    "bid_open_time": "string",
+    "winner": "string",
+    "award_amount": "string"
+  },
+  "packages": [
+    {
+      "package_identifier": "string",
+      "package_name": "string",
+      "awards": [
+        {"winner": "string", "award_amount": "string"}
+      ]
+    }
+  ]
+}
+
+Business definitions:
+- For a contract notice or contract publication, when a complete contract number is present, project_number is that exact full contract number; otherwise project_number is the official procurement or project number. Preserve every trailing letter, underscore, hyphen, and segment identifier; never shorten or drop a suffix. Package identity is project_number plus package_identifier.
+- customer is the purchaser, procuring entity, or contract Party A; never the agent or publisher.
+- winner is a final winning or transaction supplier, or contract Party B; never a candidate. Preserve every consortium member as the winning entity.
+- award_amount accepts winning, transaction, contract, and signing amounts, discount rates, and fee rates. Preserve the published numeric text, currency, unit, percentage, or rate exactly; do not convert units.
+- content is the main subject name plus the core procurement scope.
+- bid_open_time is only the bid-opening time. Return an empty string when it is absent.
+- Preserve every package and every winner-to-amount/rate association. One package may have multiple awards.
+- Put a value in corrections only when this selected notice-content DOM explicitly corrects that field. A non-empty corrections value outranks the corresponding ordinary page field.
+- Use an empty string or empty array when the selected notice-content DOM does not publish a value.
+- Return only the keys defined in the output schema.
+
+Notice-content structured DOM JSON:
+{{NOTICE_CONTENT_DOM_JSON}}

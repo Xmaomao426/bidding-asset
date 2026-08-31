@@ -1,0 +1,53 @@
+# Python environments, caches, coverage, and build output
+.venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local environment and editor-specific configuration
+.env
+.env.*
+*.local
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Codex and local agent runtime state
+.agents/
+.codex/
+.codex_test_runtime/
+.codex_work/
+/.devflow/
+/devflow/
+
+# Formal business data and generated runtime data
+/data/
+/招投标.xlsx
+/招投标.xlsx.inspect.ndjson
+/招投标_backup_before整理.xlsx
+/archived_files/
+
+# Historical archives and migration records
+/docs/archive/
+migrations/
+*_MIGRATION.md
+*_MIGRATION(*).md
+
+# Logs, temporary files, uploads, and backups
+logs/
+log/
+tmp/
+temp/
+backup/
+backups/
+uploads/
+*.log
+~$*
+*.tmp
+*.bak

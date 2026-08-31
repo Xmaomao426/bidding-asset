@@ -1,0 +1,154 @@
+[
+  {
+    "name": "中国政府采购网",
+    "priority": 1,
+    "enabled": false,
+    "category": "central",
+    "base_url": "http://www.ccgp.gov.cn",
+    "search_url": "http://search.ccgp.gov.cn/bxsearch?searchtype=1&page_index=1&bidSort=0&pinMu=0&bidType=7&dbselect=bidx&kw={query}"
+  },
+  {
+    "name": "江苏政府采购网",
+    "priority": 10,
+    "enabled": true,
+    "category": "local",
+    "base_url": "http://www.ccgp-jiangsu.gov.cn",
+    "search_url": "http://www.ccgp-jiangsu.gov.cn/search.html?keyword={query}"
+  },
+  {
+    "name": "江苏省公共资源交易平台",
+    "priority": 11,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://jsggzy.jszwfw.gov.cn",
+    "search_url": "https://jsggzy.jszwfw.gov.cn/jyxx/tradeInfo.html?keywords={query}"
+  },
+  {
+    "name": "湖北政府采购网",
+    "priority": 20,
+    "enabled": true,
+    "category": "local",
+    "base_url": "https://www.ccgp-hubei.gov.cn",
+    "search_url": "https://www.ccgp-hubei.gov.cn/search?keyword={query}"
+  },
+  {
+    "name": "湖北省公共资源交易电子服务系统",
+    "priority": 21,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://www.hbggzyfwpt.cn",
+    "search_url": "https://www.hbggzyfwpt.cn/search?keyword={query}"
+  },
+  {
+    "name": "河北政府采购网",
+    "priority": 30,
+    "enabled": false,
+    "category": "local",
+    "base_url": "http://www.ccgp-hebei.gov.cn",
+    "search_url": "http://www.ccgp-hebei.gov.cn/province/cggg/search.html?keyword={query}"
+  },
+  {
+    "name": "河北省公共资源交易服务平台",
+    "priority": 31,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "http://www.hebpr.cn",
+    "search_url": "http://www.hebpr.cn/search?keyword={query}"
+  },
+  {
+    "name": "天津政府采购网",
+    "priority": 40,
+    "enabled": true,
+    "category": "local",
+    "base_url": "http://www.ccgp-tianjin.gov.cn",
+    "search_url": "http://www.ccgp-tianjin.gov.cn/portal/topicView.do?method=view&view=Infor&id=1665&ver=2&st={query}"
+  },
+  {
+    "name": "天津市公共资源交易平台",
+    "priority": 41,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "http://ggzy.zwfwb.tj.gov.cn",
+    "search_url": "http://ggzy.zwfwb.tj.gov.cn/jyxx/index.jhtml?keywords={query}"
+  },
+  {
+    "name": "广东政府采购智慧云平台",
+    "priority": 50,
+    "enabled": false,
+    "category": "local",
+    "base_url": "https://gdgpo.czt.gd.gov.cn",
+    "search_url": "https://gdgpo.czt.gd.gov.cn/freecms/site/gd/ggxx/info/index.html?keyword={query}"
+  },
+  {
+    "name": "广东省公共资源交易平台",
+    "priority": 51,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://ygp.gdzwfw.gov.cn",
+    "search_url": "https://ygp.gdzwfw.gov.cn/ggzy-portal/search?keyword={query}"
+  },
+  {
+    "name": "四川政府采购网",
+    "priority": 60,
+    "enabled": false,
+    "category": "local",
+    "base_url": "https://zfcg.scsczt.cn",
+    "search_url": "https://zfcg.scsczt.cn/freecms/site/sichuan/ggxx/info/index.html?keyword={query}"
+  },
+  {
+    "name": "四川省公共资源交易信息网",
+    "priority": 61,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://ggzyjy.sc.gov.cn",
+    "search_url": "https://ggzyjy.sc.gov.cn/inteligentsearch/rest/inteligentSearch/getFullTextDataNew?text={query}"
+  },
+  {
+    "name": "青海政府采购网",
+    "priority": 70,
+    "enabled": false,
+    "category": "local",
+    "base_url": "http://www.ccgp-qinghai.gov.cn",
+    "search_url": "http://www.ccgp-qinghai.gov.cn/search?keyword={query}"
+  },
+  {
+    "name": "青海省公共资源交易网",
+    "priority": 71,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://www.qhggzyjy.gov.cn",
+    "search_url": "https://www.qhggzyjy.gov.cn/ggzy/search.html?keyword={query}"
+  },
+  {
+    "name": "浙江政府采购网",
+    "priority": 80,
+    "enabled": false,
+    "category": "local",
+    "base_url": "https://zfcg.czt.zj.gov.cn",
+    "search_url": "https://zfcg.czt.zj.gov.cn/search?keyword={query}"
+  },
+  {
+    "name": "浙江省公共资源交易服务平台",
+    "priority": 81,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://ggzy.zj.gov.cn",
+    "search_url": "https://ggzy.zj.gov.cn/search.html?keyword={query}"
+  },
+  {
+    "name": "上海政府采购网",
+    "priority": 90,
+    "enabled": false,
+    "category": "local",
+    "base_url": "https://www.zfcg.sh.gov.cn",
+    "search_url": "https://www.zfcg.sh.gov.cn/search?keyword={query}"
+  },
+  {
+    "name": "上海市公共资源交易中心",
+    "priority": 91,
+    "enabled": false,
+    "category": "public_resource",
+    "base_url": "https://www.shggzy.com",
+    "search_url": "https://www.shggzy.com/front/search?keyword={query}"
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "name": "中国政府采购网",
+    "domain": "ccgp.gov.cn",
+    "priority": 1,
+    "enabled": true,
+    "category": "central"
+  },
+  {
+    "name": "江苏政府采购网",
+    "domain": "ccgp-jiangsu.gov.cn",
+    "priority": 10,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "江苏政采网",
+    "domain": "jszfcg.jsczt.cn",
+    "priority": 11,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "南京公共资源交易",
+    "domain": "ggzy.nanjing.gov.cn",
+    "priority": 12,
+    "enabled": true,
+    "category": "public_resource"
+  },
+  {
+    "name": "湖北省政府门户",
+    "domain": "hubei.gov.cn",
+    "priority": 20,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "湖北公共资源交易",
+    "domain": "hbggzyfwpt.cn",
+    "priority": 21,
+    "enabled": true,
+    "category": "public_resource"
+  },
+  {
+    "name": "天津政府采购网",
+    "domain": "ccgp-tianjin.gov.cn",
+    "priority": 30,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "天津政采网",
+    "domain": "tjgp.cz.tj.gov.cn",
+    "priority": 31,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "河北公共资源交易",
+    "domain": "hebpr.cn",
+    "priority": 40,
+    "enabled": true,
+    "category": "public_resource"
+  },
+  {
+    "name": "河北公共资源交易平台",
+    "domain": "ggzy.hebei.gov.cn",
+    "priority": 41,
+    "enabled": true,
+    "category": "public_resource"
+  },
+  {
+    "name": "广东政府采购智慧云平台",
+    "domain": "gdgpo.czt.gd.gov.cn",
+    "priority": 50,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "浙江政府采购网",
+    "domain": "zfcg.czt.zj.gov.cn",
+    "priority": 60,
+    "enabled": true,
+    "category": "local"
+  },
+  {
+    "name": "浙江公共资源交易服务平台",
+    "domain": "ggzy.zj.gov.cn",
+    "priority": 61,
+    "enabled": true,
+    "category": "public_resource"
+  }
+]
